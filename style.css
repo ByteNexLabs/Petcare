@@ -646,11 +646,11 @@ p {
     position: fixed;   /* पूरे page में रहेगा */
     top: 0;
     left: 0;
-    width: 100%;
+    width: 120%;
     height: 100%;
 
     z-index: -1;       /* पीछे */
-    opacity: 10;     /* हल्का */
+    opacity: 0.2;     /* हल्का */
     pointer-events: none;
 }
 
