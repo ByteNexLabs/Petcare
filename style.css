@@ -1,0 +1,660 @@
+:root {
+--primary-grad: linear-gradient(135deg, #ff7eb3, #ff758c);
+--secondary-grad: linear-gradient(135deg, #43e97b, #38f9d7);
+--bg-color: #fff7f2;
+--text-dark: #2d3436;
+--shadow: 0 10px 30px rgba(255, 117, 140, 0.2);
+}
+
+*{ margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+
+body { background-color: var(--bg-color); color: var(--text-dark); }
+h1, h2 { font-family: 'Baloo Bhai 2', cursive; }
+
+.bg-decor {
+    position: absolute;
+    top: 300px;   /* 👈 upar shift karo (adjust kar sakte ho) */
+    left: 0;
+    width: 100%;
+    height: auto;
+
+    opacity: 0.08;
+    pointer-events: none;
+}
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+
+    padding: 12px 16px;   /* FIX: पहले % था */
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+
+    z-index: 1000;
+}
+
+nav ul { display: flex; list-style: none; gap: 30px; }
+nav a { text-decoration: none; color: var(--text-dark); font-weight: 500; }
+
+.btn-header { background: var(--primary-grad); color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; }
+
+.hero { padding: 80px 10%; display: flex; align-items: center; justify-content: space-between; min-height: 80vh; }
+.hero-content h1 { font-size: 3rem; line-height: 1.2; }
+.hero-btns { display: flex; gap: 20px; margin-top: 30px; }
+
+.cta-wa { background: var(--secondary-grad); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; }
+.cta-call { background: white; color: var(--text-dark); padding: 15px 30px; border-radius: 50px; border: 1px solid #ddd; text-decoration: none; }
+
+.section-padding { padding: 100px 10%; }
+.center-text { text-align: center; margin-bottom: 50px; }
+
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+.service-card { background: white; padding: 40px; border-radius: 25px; text-align: center; transition: 0.3s; }
+.service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow); }
+
+.booking-container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 30px; box-shadow: var(--shadow); }
+.form-group { margin-bottom: 20px; }
+input, select { width: 100%; padding: 15px; border-radius: 12px; border: 1px solid #eee; outline: none; margin-top: 5px; }
+.hidden { display: none; }
+
+.submit-btn { width: 100%; background: var(--secondary-grad); color: white; border: none; padding: 15px; border-radius: 50px; font-weight: 700; cursor: pointer; }
+
+footer { background: #ff758c; color: white; padding: 40px; }
+
+.wa-float {
+position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+background: #25d366; color: white; border-radius: 50%; display: flex;
+justify-content: center; align-items: center; text-decoration: none; font-weight: bold;
+}
+
+@media (max-width: 768px) {
+.hero { flex-direction: column; text-align: center; }
+nav { display: none; }
+}
+
+/* Emergency Bar */
+.emergency-bar {
+background: #d63031;
+color: white;
+text-align: center;
+padding: 8px;
+font-size: 0.9rem;
+font-weight: 600;
+}
+.emergency-bar a { color: #ffd166; text-decoration: none; }
+
+/* Doctors Grid */
+.doctors-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 30px;
+}
+.doctor-card {
+background: white;
+padding: 30px;
+border-radius: 20px;
+text-align: center;
+box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.doc-img { font-size: 50px; margin-bottom: 15px; }
+.doctor-card span { color: #ff758c; font-size: 0.8rem; font-weight: 700; }
+
+/* Pricing Table */
+.pricing-table {
+max-width: 600px;
+margin: 0 auto;
+}
+.price-item {
+display: flex;
+justify-content: space-between;
+padding: 15px 20px;
+background: var(--bg-color);
+margin-bottom: 10px;
+border-radius: 12px;
+font-weight: 600;
+}
+.price-item span { color: #ff758c; }
+
+/* Map Container */
+.map-container {
+border: 5px solid white;
+border-radius: 25px;
+overflow: hidden;
+box-shadow: var(--shadow);
+}
+
+.wa-float {
+position: fixed;
+bottom: 30px;
+right: 30px;
+width: 65px;
+height: 65px;
+background-color: #25d366; /* WhatsApp Green /
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+z-index: 9999;
+transition: all 0.3s ease;
+animation: wa-pulse 2s infinite; / Animation trigger */
+}
+
+/* Hover effect */
+.wa-float:hover {
+transform: scale(1.1);
+background-color: #128c7e;
+}
+
+/* Pulsing Animation */
+@keyframes wa-pulse {
+0% {
+box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+}
+70% {
+box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+}
+100% {
+box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+}
+}
+
+/* Responsive check for smaller screens */
+@media (max-width: 768px) {
+.wa-float {
+width: 55px;
+height: 55px;
+bottom: 20px;
+right: 20px;
+}
+}
+.hero-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img svg {
+    width: 260px;
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1));
+    transition: 0.3s;
+}
+
+.hero-img:hover svg {
+    transform: scale(1.05);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-img {
+        margin-top: 20px;
+    }
+}
+.hero {
+padding: 40px 5% 80px;
+min-height: 90vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.hero-content {
+text-align: center;
+}
+
+.hero-content h1 {
+margin-top: 20px;
+}
+
+.hero-btns {
+justify-content: center;
+}
+header {
+    position: sticky;
+    top: 0;
+    padding: 15px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    z-index: 1000;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ff758c;
+}
+
+/* NAV CENTER */
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+/* LINKS */
+nav a {
+    text-decoration: none;
+    color: #2d3436;
+    font-weight: 500;
+    position: relative;
+}
+
+/* HOVER LINE */
+nav a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #ff758c;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* BUTTON RIGHT */
+.btn-header {
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ff758c;
+
+    margin-left: 5px;   /* FIX */
+}
+.hero {
+    padding: 40px 25px;   /* पहले 40px था → कम किया */
+}
+.hero-img {
+    margin-top: -80px;   /* ऊपर खींच देगा */
+}
+.hero {
+    height: 100vh;   /* ❌ हटाओ */
+}
+.hero {
+    min-height: auto;
+}
+.hero {
+    position: relative;
+}
+
+/* 1) Browser default margin हटाओ */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* 2) Header नीचे gap ना दे */
+header {
+    margin: 0;
+    padding: 10px 15px;
+}
+
+/* 3) Hero को tight करो */
+.hero {
+    margin: 0;
+    padding: 8px 15px 10px;   /* top कम */
+    position: relative;
+}
+
+/* 4) Title का default gap खत्म */
+.hero-text h1 {
+    margin: 0;          /* सबसे जरूरी */
+    line-height: 1.2;
+}
+
+/* 5) Paragraph का भी top gap हटाओ */
+.hero-text p {
+    margin-top: 6px;
+}
+
+/* 6) bg-decor space ना ले */
+.bg-decor {
+    position: absolute;
+    top: -40px;         /* ऊपर धकेलो */
+    left: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 7) Content ऊपर रखो */
+.hero-text,
+.hero-img {
+    position: relative;
+    z-index: 1;
+}
+
+/* 8) Emergency nudge (अगर फिर भी gap दिखे) */
+.hero-text {
+    margin-top: -10px;  /* -20px तक जा सकते हो */
+}
+
+/* RESET EVERYTHING */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    margin: 0;
+}
+
+/* HERO FIX */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;  /* force */
+    align-items: flex-start !important;
+
+    height: auto !important;   /* kill 100vh */
+    min-height: auto !important;
+
+    padding: 5px 15px !important;   /* very tight */
+}
+
+/* TITLE */
+.hero-text h1 {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2;
+}
+
+/* REMOVE ANY EXTRA GAP */
+.hero-text {
+    margin-top: -20px !important;   /* force up */
+}
+
+/* BG DECOR FIX */
+.bg-decor {
+    position: absolute !important;
+    top: -60px !important;   /* push up fully */
+    left: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    padding: 20px 15px 0;
+}
+
+.hero-img {
+    margin-top: 20px;   /* buttons के बाद space */
+}
+
+.hero-img svg {
+    width: 220px;
+    height: auto;
+}
+
+
+
+.section-padding {
+    padding: 20px 10px !important;
+}
+
+
+/* ===== GLOBAL SCALE FIX ===== */
+body {
+    font-size: 14px;   /* पहले शायद 16-18 होगा */
+}
+
+/* ===== HERO TEXT ===== */
+.hero-text h1 {
+    font-size: 28px;   /* पहले बहुत बड़ा था */
+    line-height: 1.3;
+}
+
+.hero-text p {
+    font-size: 14px;
+}
+
+/* ===== BUTTONS ===== */
+.hero-buttons button {
+    padding: 10px 16px;
+    font-size: 14px;
+}
+
+/* ===== LOGO ===== */
+.logo svg {
+    width: 28px;
+    height: 28px;
+}
+
+.logo {
+    font-size: 20px;
+}
+
+/* ===== HERO IMAGE ===== */
+.hero-img svg {
+    width: 180px;   /* पहले 220+ था */
+}
+
+/* ===== SECTION TITLE ===== */
+.center-text h2 {
+    font-size: 20px;
+}
+
+.center-text p {
+    font-size: 13px;
+}
+
+/* ===== SPACING CONTROL ===== */
+.section-padding {
+    padding: 20px 12px;
+}
+
+.faq-section {
+    padding: 25px 15px;
+}
+
+.faq-container {
+    max-width: 500px;
+    margin: 15px auto;
+}
+
+.faq-item {
+    background: #fff;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.faq-answer {
+    display: none;
+    padding: 0 14px 12px;
+    font-size: 13px;
+    color: #555;
+}
+
+
+.map-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 10px;
+    
+    background: #fff;
+    border-radius: 25px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.map-container iframe {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.direction-btn {
+    display: inline-block;
+    margin-top: 12px;
+
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #ff758c, #ff5c7a);
+    color: #fff;
+
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.direction-btn:hover {
+    transform: scale(1.05);
+}
+
+.trust-section {
+    padding: 25px 15px;
+    text-align: center;
+}
+
+/* Doctor Card */
+.doctor-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 300px;
+    margin: 15px auto;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+
+.doctor-card img {
+    width: 70px;
+    margin-bottom: 10px;
+}
+
+.doctor-card h3 {
+    font-size: 18px;
+}
+
+.doctor-card p {
+    font-size: 13px;
+    color: #666;
+}
+
+/* Reviews */
+.reviews {
+    margin-top: 20px;
+}
+
+.review-card {
+    background: #fff;
+    padding: 12px;
+    border-radius: 15px;
+    margin: 10px auto;
+    max-width: 400px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+}
+
+.review-card p {
+    font-size: 13px;
+}
+
+.review-card span {
+    color: #ffcc00;
+    font-size: 14px;
+}
+
+.section-padding {
+    padding: 30px 15px;
+}
+
+h1 {
+    font-size: 28px;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+p {
+    font-size: 14px;
+    color: #666;
+}
+
+.card,
+.booking-container,
+.review-card,
+.doctor-card,
+.map-container {
+    border-radius: 20px;
+    background: #fff;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.bg-pets {
+    position: fixed;   /* पूरे page में रहेगा */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;       /* पीछे */
+    opacity: 10;     /* हल्का */
+    pointer-events: none;
+}
+
+.bg-pets svg {
+    width: 100%;
+    height: 100%;
+}
